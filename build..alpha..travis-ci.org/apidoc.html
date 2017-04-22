@@ -1,0 +1,524 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/jasonsims/aws-cloudfront-sign#readme"
+
+    >aws-cloudfront-sign (v2.2.0)</a>
+</h1>
+<h4>Utility module for signing AWS CloudFront URLs</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.aws-cloudfront-sign">module aws-cloudfront-sign</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.aws-cloudfront-sign.CannedPolicy">
+            function <span class="apidocSignatureSpan">aws-cloudfront-sign.</span>CannedPolicy
+            <span class="apidocSignatureSpan">(url, expireTime, ipRange)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.aws-cloudfront-sign._getExpireTime">
+            function <span class="apidocSignatureSpan">aws-cloudfront-sign.</span>_getExpireTime
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.aws-cloudfront-sign._getIpRange">
+            function <span class="apidocSignatureSpan">aws-cloudfront-sign.</span>_getIpRange
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.aws-cloudfront-sign.getSignedCookies">
+            function <span class="apidocSignatureSpan">aws-cloudfront-sign.</span>getSignedCookies
+            <span class="apidocSignatureSpan">(cfUrl, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.aws-cloudfront-sign.getSignedRTMPUrl">
+            function <span class="apidocSignatureSpan">aws-cloudfront-sign.</span>getSignedRTMPUrl
+            <span class="apidocSignatureSpan">(domainname, s3key, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.aws-cloudfront-sign.getSignedUrl">
+            function <span class="apidocSignatureSpan">aws-cloudfront-sign.</span>getSignedUrl
+            <span class="apidocSignatureSpan">(cfUrl, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.aws-cloudfront-sign.normalizeBase64">
+            function <span class="apidocSignatureSpan">aws-cloudfront-sign.</span>normalizeBase64
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.aws-cloudfront-sign.normalizeSignature">
+            function <span class="apidocSignatureSpan">aws-cloudfront-sign.</span>normalizeSignature
+            <span class="apidocSignatureSpan">(sig)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">aws-cloudfront-sign.</span>CannedPolicy.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.aws-cloudfront-sign.CannedPolicy">module aws-cloudfront-sign.CannedPolicy</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.aws-cloudfront-sign.CannedPolicy.CannedPolicy">
+            function <span class="apidocSignatureSpan">aws-cloudfront-sign.</span>CannedPolicy
+            <span class="apidocSignatureSpan">(url, expireTime, ipRange)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.aws-cloudfront-sign.CannedPolicy.prototype">module aws-cloudfront-sign.CannedPolicy.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.aws-cloudfront-sign.CannedPolicy.prototype._validate">
+            function <span class="apidocSignatureSpan">aws-cloudfront-sign.CannedPolicy.prototype.</span>_validate
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.aws-cloudfront-sign.CannedPolicy.prototype.toJSON">
+            function <span class="apidocSignatureSpan">aws-cloudfront-sign.CannedPolicy.prototype.</span>toJSON
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.aws-cloudfront-sign" id="apidoc.module.aws-cloudfront-sign">module aws-cloudfront-sign</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.aws-cloudfront-sign.CannedPolicy" id="apidoc.element.aws-cloudfront-sign.CannedPolicy">
+        function <span class="apidocSignatureSpan">aws-cloudfront-sign.</span>CannedPolicy
+        <span class="apidocSignatureSpan">(url, expireTime, ipRange)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CannedPolicy(url, expireTime, ipRange) {
+  this.url = url;
+  this.expireTime = Math.round(expireTime/ 1000) || undefined;
+  this.ipRange = ipRange;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.aws-cloudfront-sign._getExpireTime" id="apidoc.element.aws-cloudfront-sign._getExpireTime">
+        function <span class="apidocSignatureSpan">aws-cloudfront-sign.</span>_getExpireTime
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _getExpireTime(opts) {
+  return +opts.expireTime || null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.aws-cloudfront-sign._getIpRange" id="apidoc.element.aws-cloudfront-sign._getIpRange">
+        function <span class="apidocSignatureSpan">aws-cloudfront-sign.</span>_getIpRange
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _getIpRange(opts) {
+  return opts.ipRange || null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.aws-cloudfront-sign.getSignedCookies" id="apidoc.element.aws-cloudfront-sign.getSignedCookies">
+        function <span class="apidocSignatureSpan">aws-cloudfront-sign.</span>getSignedCookies
+        <span class="apidocSignatureSpan">(cfUrl, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getSignedCookies(cfUrl, params){
+  var privateKey = _getPrivateKey(params);
+  var policy = _createPolicy(
+    cfUrl, _getExpireTime(params), _getIpRange(params));
+  var signature = _createPolicySignature(policy, privateKey);
+  var policyStr = new Buffer(policy.toJSON()).toString(&#x27;base64&#x27;);
+
+  var cookies = {};
+  cookies[&#x27;CloudFront-Policy&#x27;] = normalizeBase64(policyStr);
+  cookies[&#x27;CloudFront-Signature&#x27;] = normalizeBase64(signature);
+  cookies[&#x27;CloudFront-Key-Pair-Id&#x27;] = params.keypairId;
+
+  return cookies;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+console.log(&#x27;Signed Stream Name: &#x27; + signedRTMPUrlObj.rtmpStreamName);
+```
+
+### Creating signed cookies
+```js
+var cf = require(&#x27;aws-cloudfront-sign&#x27;)
+var options = {keypairId: &#x27;APKAJM2FEVTI7BNPCY4A&#x27;, privateKeyPath: &#x27;/foo/bar&#x27;}
+var signedCookies = cf.<span class="apidocCodeKeywordSpan">getSignedCookies</span>(&#x27;http://xxxxxxx.cloudfront.net/*&#x27;,
+options);
+
+// You can now set cookies in your response header. For example:
+for(var cookieId in signedCookies) {
+ res.cookie(cookieId, signedCookies[cookieId]);
+}
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.aws-cloudfront-sign.getSignedRTMPUrl" id="apidoc.element.aws-cloudfront-sign.getSignedRTMPUrl">
+        function <span class="apidocSignatureSpan">aws-cloudfront-sign.</span>getSignedRTMPUrl
+        <span class="apidocSignatureSpan">(domainname, s3key, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getSignedRTMPUrl(domainname, s3key, params) {
+
+  if (!domainname || domainname.indexOf(&#x27;/&#x27;) &#x3e; -1) {
+    throw new Error(
+      &#x27;Supplied domain name doesn\&#x27;t look right. &#x27; +
+      &#x27;Example: \&#x27;xxxxxxxx.cloudfront.net\&#x27;. Omit \&#x27;http\&#x27; and any paths.&#x27;
+    );
+  }
+
+  if (!s3key || s3key.length === 0 || s3key.charAt(0) === &#x27;/&#x27;) {
+    throw new Error(
+      &#x27;Supplied s3 key doesn\&#x27;t look right. &#x27; +
+      &#x27;Example: \&#x27;myfolder/bla.mp4\&#x27;. Omit preceding slashes or hostnames.&#x27;
+    );
+  }
+
+  return {
+    rtmpServerPath: &#x27;rtmp://&#x27; + domainname + &#x27;/cfx/st&#x27;,
+    rtmpStreamName: module.exports.getSignedUrl(s3key, params)
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+console.log(&#x27;Signed URL: &#x27; + signedUrl);
+```
+
+### Creating a signed RTMP URL
+```js
+var cf = require(&#x27;aws-cloudfront-sign&#x27;)
+var options = {keypairId: &#x27;APKAJM2FEVTI7BNPCY4A&#x27;, privateKeyPath: &#x27;/foo/bar&#x27;}
+var signedRTMPUrlObj = cf.<span class="apidocCodeKeywordSpan">getSignedRTMPUrl</span>(&#x27;xxxxxxx.cloudfront.net&#x27;, &#x27;/
+path/to/s3/object&#x27;, options);
+console.log(&#x27;RTMP Server Path: &#x27; + signedRTMPUrlObj.rtmpServerPath);
+console.log(&#x27;Signed Stream Name: &#x27; + signedRTMPUrlObj.rtmpStreamName);
+```
+
+### Creating signed cookies
+```js
+var cf = require(&#x27;aws-cloudfront-sign&#x27;)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.aws-cloudfront-sign.getSignedUrl" id="apidoc.element.aws-cloudfront-sign.getSignedUrl">
+        function <span class="apidocSignatureSpan">aws-cloudfront-sign.</span>getSignedUrl
+        <span class="apidocSignatureSpan">(cfUrl, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getSignedUrl(cfUrl, params) {
+  var privateKey = _getPrivateKey(params);
+  var policy = _createPolicy(
+    cfUrl, _getExpireTime(params), _getIpRange(params));
+  var signature = _createPolicySignature(policy, privateKey);
+  var policyStr = new Buffer(policy.toJSON()).toString(&#x27;base64&#x27;);
+
+  // Parse the cloudfront URL so we can add the querystring values required by
+  // AWS signed URLs. We need to assign an empty string to the `search`
+  // property so that the object value of `.query` is used when `.format()`
+  // is called.
+  var parsedUrl = url.parse(cfUrl, true);
+  parsedUrl.search = &#x27;&#x27;;
+  _.extend(parsedUrl.query, {
+    &#x27;Expires&#x27;: policy.expireTime,
+    &#x27;Policy&#x27;: normalizeBase64(policyStr),
+    &#x27;Signature&#x27;: normalizeBase64(signature),
+    &#x27;Key-Pair-Id&#x27;: params.keypairId
+  });
+
+  // Return a formatted URL string with signature.
+  return parsedUrl.format();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  ```
+
+## Examples
+### Creating a signed URL
+```js
+var cf = require(&#x27;aws-cloudfront-sign&#x27;)
+var options = {keypairId: &#x27;APKAJM2FEVTI7BNPCY4A&#x27;, privateKeyPath: &#x27;/foo/bar&#x27;}
+var signedUrl = cf.<span class="apidocCodeKeywordSpan">getSignedUrl</span>(&#x27;http://xxxxxxx.cloudfront.net/path/to/s3/object
+&#x27;, options);
+console.log(&#x27;Signed URL: &#x27; + signedUrl);
+```
+
+### Creating a signed RTMP URL
+```js
+var cf = require(&#x27;aws-cloudfront-sign&#x27;)
+var options = {keypairId: &#x27;APKAJM2FEVTI7BNPCY4A&#x27;, privateKeyPath: &#x27;/foo/bar&#x27;}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.aws-cloudfront-sign.normalizeBase64" id="apidoc.element.aws-cloudfront-sign.normalizeBase64">
+        function <span class="apidocSignatureSpan">aws-cloudfront-sign.</span>normalizeBase64
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function normalizeBase64(str) {
+  return str
+    .replace(/\+/g, &#x27;-&#x27;)
+    .replace(/=/g, &#x27;_&#x27;)
+    .replace(/\//g, &#x27;~&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.aws-cloudfront-sign.normalizeSignature" id="apidoc.element.aws-cloudfront-sign.normalizeSignature">
+        function <span class="apidocSignatureSpan">aws-cloudfront-sign.</span>normalizeSignature
+        <span class="apidocSignatureSpan">(sig)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function normalizeSignature(sig) {
+  console.log(
+    &#x27;Deprecation Warning: &#x22;normalizeSignature&#x22; will soon be removed. Please &#x27; +
+    &#x27;use &#x22;normalizeBase64&#x22;&#x27;);
+  return normalizeBase64(sig);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.aws-cloudfront-sign.CannedPolicy" id="apidoc.module.aws-cloudfront-sign.CannedPolicy">module aws-cloudfront-sign.CannedPolicy</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.aws-cloudfront-sign.CannedPolicy.CannedPolicy" id="apidoc.element.aws-cloudfront-sign.CannedPolicy.CannedPolicy">
+        function <span class="apidocSignatureSpan">aws-cloudfront-sign.</span>CannedPolicy
+        <span class="apidocSignatureSpan">(url, expireTime, ipRange)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CannedPolicy(url, expireTime, ipRange) {
+  this.url = url;
+  this.expireTime = Math.round(expireTime/ 1000) || undefined;
+  this.ipRange = ipRange;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.aws-cloudfront-sign.CannedPolicy.prototype" id="apidoc.module.aws-cloudfront-sign.CannedPolicy.prototype">module aws-cloudfront-sign.CannedPolicy.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.aws-cloudfront-sign.CannedPolicy.prototype._validate" id="apidoc.element.aws-cloudfront-sign.CannedPolicy.prototype._validate">
+        function <span class="apidocSignatureSpan">aws-cloudfront-sign.CannedPolicy.prototype.</span>_validate
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_validate = function () {
+  // Ensure required params are present
+  assert(!!this.url, &#x27;Missing param: url&#x27;);
+  assert(!!this.expireTime, &#x27;Missing param: expireTime&#x27;);
+
+  // Ensure expireTime value is valid
+  assert(this.expireTime &#x3c; 2147483647,
+    &#x27;expireTime must be less than January 19, 2038 03:14:08 GMT &#x27; +
+    &#x27;due to the limits of UNIX time&#x27;);
+  assert(this.expireTime &#x3e; (new Date().getTime() / 1000),
+    &#x27;expireTime must be after the current time&#x27;);
+
+  return true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+ * Serialize the CannedPolicy instance.
+ *
+ * @return {String} Serialized policy
+ */
+CannedPolicy.prototype.toJSON = function() {
+// Ensure the current instance is valid before building the canned policy.
+this.<span class="apidocCodeKeywordSpan">_validate</span>();
+
+var policy = {
+  &#x27;Statement&#x27;: [{
+    &#x27;Resource&#x27;: this.url,
+    &#x27;Condition&#x27;: {
+      &#x27;DateLessThan&#x27;: {
+        &#x27;AWS:EpochTime&#x27;: this.expireTime
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.aws-cloudfront-sign.CannedPolicy.prototype.toJSON" id="apidoc.element.aws-cloudfront-sign.CannedPolicy.prototype.toJSON">
+        function <span class="apidocSignatureSpan">aws-cloudfront-sign.CannedPolicy.prototype.</span>toJSON
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toJSON = function () {
+  // Ensure the current instance is valid before building the canned policy.
+  this._validate();
+
+  var policy = {
+    &#x27;Statement&#x27;: [{
+      &#x27;Resource&#x27;: this.url,
+      &#x27;Condition&#x27;: {
+        &#x27;DateLessThan&#x27;: {
+          &#x27;AWS:EpochTime&#x27;: this.expireTime
+        }
+      }
+    }]
+  };
+
+  if (this.ipRange) {
+    policy.Statement[0].Condition.IpAddress = {
+      &#x27;AWS:SourceIp&#x27;: this.ipRange
+    };
+  }
+
+  return JSON.stringify(policy);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
